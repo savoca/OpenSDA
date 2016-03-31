@@ -1,0 +1,70 @@
+The OpenSDA contains firmware applications for the OpenSDA hardware platform.
+
+
+Changes:
+
+MSD - DEBUG version 1.18
+
+  - added MSD support for both P and D FLASH memory for EVB-S32K144 board.
+
+TWR-K80F150M and FRDM-K82F support for internal 256k and QSPI Aliased FLASH starting at location 0x4000000
+
+  - MSD-DEBUG-TWR-K80F150M_Pemicro_v117.SDA - DEBUG, Mass Storage Device support for internal FLASH memory
+  - MSD-DEBUG-TWR-K80F150M-QSPI_Pemicro_v117.SDA - DEBUG, Mass Storage Device support for Aliased QSPI parallel
+    configuration starting at 0x4000000
+  - MSD-DEBUG-FRDM-K82F_Pemicro_v117.SDA - DEBUG, Mass Storage Device support for internal FLASH memory
+  - MSD-DEBUG-FRDM-K82F-QSPI_Pemicro_v117.SDA - DEBUG, Mass Storage Device support for Aliased QSPI parallel
+    configuration starting at 0x4000000
+
+DEBUG version 1.08 for MBED:
+  - Adds universal OpenSDA Debug firmware that is capable of running on top of OpenSDA board programmed with 
+    MBED Bootloader
+
+DEBUG_OpenSDA_for_MBED_Bootloader_by_Pemicro_v108.bin
+
+MSD - DEBUG version 1.17
+  - Includes sectore erase support, instead of mass erase for TWR-KV31F120M and X-HPV-KV31F120M boards to 
+    prevent loss of information in execute only parts of FLASH memory
+
+MSD - DEBUG version 1.15
+  - Includes a soft reset fix for FRDM-K20D50M board, which would lead to MSD 
+    FLASH programming issue.
+
+MSD - DEBUG version 1.14
+
+  - Added combined MSD, DEBUG and CDC virtual serial support in a single APP.
+    Switching between MSD and DEBUG apps is no longer necessary
+
+  - Added Windows 8.1 support. 
+
+MSD version 1.12 
+
+  - added Linux and MAC support
+
+MSD Version 1.09 and DEBUG Version 1.06
+
+  - Fixed virtual serial 8 bits with parity and 7 bits with parity cases.
+  - Chanded RESET_B configuration to minimize current draw
+
+MSD Version 1.08
+
+  - Added a pullup to the RXD line of vertual serial port
+
+MSD Version 1.07
+
+  - Improved initial communications to the target MCU to address cases where
+    the reset line is disabled or the low power boot mode is used. This may
+    previously have resulted in inability to reprogram the target MCU. 
+
+MSD Version 1.06
+
+  - Support added for Linux Operating System (Tested on Ubuntu)
+
+MSD Version 1.05
+  - Reset and Run after programming was fixed for secure devices
+  - If an illegal file was dropped to it, the LEDs wouldn't blink an error, device would stop working.
+  - Protected against programming the FSEC in a way which permanently secures the device
+
+
+
+All files in this archive are (C)opyright 2012, P&E Microcomputer Systems. All rights reserved.

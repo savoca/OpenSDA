@@ -1,0 +1,36 @@
+January 18th, 2016
+Bootloader Update Application, Version 1.11
+
+This application will update the bootloader portion of the OpenSDA software platform to version 1.11. The current version of bootloader software can be seen by entering bootloader mode and running the SDA_INFO.HTM file. It is recommended to only update the bootloader software if there is some reason (such as allowing enumeration under Linux).
+
+To update Bootloader please follow these steps:
+
+1. Enter bootloader mode (generally by holding down the target reset button on the OpenSDA board and plugging in the USB connection).
+
+2. Drag and drop the BOOTUPDATEAPP.SDA file to the root directory of the Bootloader "drive".
+
+3. Unplug and replug your OpenSDA board to initiate Bootloader update.  Bootloader update should take less than 15 seconds (probably averages 3 seconds).
+
+4. Once update is complete, OpenSDA will automatically enumerate in Bootloader mode and green status LED will go on blinking with .5 second on/off intervals. 
+
+5. Run the SDA_INFO.HTM file in the root directory of the Bootloader "drive".
+
+6. Following a Bootloader update, one should boot up the board in Bootloader mode and drag and drop corresponding FRDM or TWR OpenSDA firmware in order to replace resident Bootloader Update application.
+
+7. After this OpenSDA firmware update, the board will be ready for use as DEBUG interface or MSD (mass storage device) following unplugging and replugging the board into a USB port. 
+
+IMPORTANT: Please do not unplug OpenSDA while Bootloader is updating. 
+
+WARNING: If you are running Microboot v1.03 or older on a FRDM-KL25Z board, there is a scenario where interrupting the firmware update at a very specific spot during the update process will cause the board to become secure and unusable. It is very unlikely that this would occur as the entire update process takes about a second and this problem would occur only when replacing one of the many sectors in the flash which are reprogrammed. This flaw was fixed in Microboot v1.03. In order to fix the board, it would have to be shipped to P&E to be recovered. 
+
+BOOTUPDATEAPP with Bootloader v1.11 fixes the following issues:
+
+v1.05 Fixed binary files download to bootloader. Wrong address was used (0x0000 instead of 0x8000)
+      Fixed led not coming on upon an error
+v1.07 Added Bootloader support for Linux
+v1.08 Future feature additions (undocumented)
+v1.09 Disabled RESET_B after usage to remove current draw from target MCU
+v1.10 New Bootloader code supports MAC and Linux
+v1.11 Added Windows 8.1 support
+
+ 
